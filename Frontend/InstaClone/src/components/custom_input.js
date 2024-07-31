@@ -9,7 +9,7 @@ import { Fonts } from '../themes/fonts';
 
 
 const Custom_Input = ({ value, onChangeText, onFocus, onBlur, placeholder, leftImage, rightImage, secureTextEntry, ...rest }) => {
-const theme=useSelector(state => state.theme)
+const theme=useSelector((state) => state.theme.theme)
 const styles = createStyles(theme);
 
     const [isFocused, setIsFocused] = useState(false);

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Image, StyleSheet, TouchableOpacity, View, Text} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View, Text, SafeAreaView} from 'react-native';
 import {useSelector} from 'react-redux';
 import {Colors} from '../../../themes/colors';
 import {InstaLogo, fbLogo} from '../../../themes/images';
@@ -17,7 +17,7 @@ const Login = () => {
   const isFormValid = username !== '' && password !== '';
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Image source={InstaLogo} style={styles.logo} />
       <Custom_Input
         placeholder="Username"
@@ -54,7 +54,7 @@ const Login = () => {
       <View/>
       </View>
 
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -1,4 +1,4 @@
-import {StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from '../screens/Bottom-tabs/Home/Home';
@@ -15,6 +15,8 @@ import Reels from '../screens/Bottom-tabs/Reels/Reels';
 import Profile from '../screens/Bottom-tabs/Profile/Profile';
 import { useSelector } from 'react-redux';
 import { Colors } from '../themes/colors';
+
+import { ashraf, profilePic } from '../themes/images';
 
 const Stack = createBottomTabNavigator();
 
@@ -33,9 +35,11 @@ const BottomTabNav = () => {
           
           
           
-          backgroundColor: theme === 'dark' ? Colors.bg_light : Colors.bg_dark,
+          backgroundColor: theme === 'dark' ? Colors.bg_dark : Colors.bg_light,
           
-          height: 90,
+          height: 70,
+          position: 'absolute',
+          paddingBottom: 20,
           
           ...styles.shadow,
           
@@ -46,31 +50,43 @@ const BottomTabNav = () => {
             // iconName = focused ? 'home-sharp' : 'home-outline';
             // return <Ionicons name={iconName} size={40} color={color} />;
             return focused ? (
-              <Foundation name="home" size={40} color={color} />
+              <Foundation name="home" size={30} color={
+                theme === 'dark' ? Colors.bg_light : Colors.bg_dark
+              } />
             ) : (
-              <Octicons name="home" size={35} color={color} />
+              <Octicons name="home" size={30} color={
+                theme === 'dark' ? Colors.bg_dark : Colors.bg_light} />
             );
           } else if (route.name === 'Search') {
-            return  focused ?(<FontAwesome name="search" size={35} color={color} />):
-            (<Feather name="search" size={35} color={color} />)
+            return  focused ?(<FontAwesome name="search" size={30} color={color} />):
+            (<Feather name="search" size={30} color={
+              theme === 'dark' ? Colors.bg_light : Colors.bg_dark
+            } />)
           
             
           } else if (route.name === 'AddPost') {
-            return <Octicons name="diff-added" color={color} size={30} />;
+            return <Octicons name="diff-added" color={
+              theme === 'dark' ? Colors.bg_light : Colors.bg_dark
+            } size={27} />;
 
           } else if (route.name === 'Reels') {
             iconName = focused ? 'movie' : 'movie-outline';
               return <MaterialCommunityIcons
                 name={iconName}
-                color={color}
-                size={35}
+                color={
+                  theme === 'dark' ? Colors.bg_light : Colors.bg_dark
+                }
+                size={30}
               />
           } else if (route.name === 'Profile') {
             return (
-              <MaterialCommunityIcons
-                name="face-man-profile"
-                color={color}
-                size={30}
+              <Image source={ashraf}
+              style={{
+                width: 30,
+                height: 30,
+                borderRadius: 15,
+                resizeMode: 'cover',
+                }}
               />
             );
           }
@@ -84,6 +100,9 @@ const BottomTabNav = () => {
     </Stack.Navigator>
   );
 };
+
+const themeColor = (theme) => theme === 'dark' ? Colors.bg_dark : Colors.bg_light;
+
 
 const styles = StyleSheet.create({
   shadow:{

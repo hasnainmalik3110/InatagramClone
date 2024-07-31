@@ -9,5 +9,10 @@ export const Colors={
     input_br_light: '#FBFBFB',
     input_br_dark: '#080808',
     disable_btn: '#9BCBF7',
-    line: '#cccccc'
+    line: '#cccccc',
+    insta_theme_yellow: '#FFD600',
+    insta_theme_orange: '#FF7A00',
+    insta_theme_pink: '#FF0069',
+    insta_theme_purple: '#D300C5',
+    insta_theme_blue: '#7638FA',
 }

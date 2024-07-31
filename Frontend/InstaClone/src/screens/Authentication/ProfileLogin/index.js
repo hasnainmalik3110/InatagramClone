@@ -1,4 +1,4 @@
-import {Image, Pressable, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Image, Pressable, StyleSheet, Text, TouchableOpacity, View,SafeAreaView} from 'react-native';
 import React from 'react';
 
 import { createStyles} from './style';
@@ -12,7 +12,7 @@ const ProfileLogin = ({navigation}) => {
  
 const styles = createStyles (theme);
   return (
-    <View style={styles.container}>
+    <safeAreaView style={styles.container}>
       <Image source={InstaLogo} style={styles.logo} />
 
       <Image source={profilePic} style={styles.profile} />
@@ -31,7 +31,7 @@ const styles = createStyles (theme);
       <Text style={styles.signUP_txt}> Sign up.</Text>
       </TouchableOpacity>
       </View>
-    </View>
+    </safeAreaView>
   );
 };
 

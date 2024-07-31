@@ -1,19 +1,26 @@
-import {createSlice, isDraft} from '@reduxjs/toolkit';
+// themeSlice.js
+import { createSlice } from '@reduxjs/toolkit';
 import { Appearance } from 'react-native';
+
 const systemTheme = Appearance.getColorScheme();
 
-
-export const ThemeSlice = createSlice({
+export const themeSlice = createSlice({
   name: 'theme',
-  initialState: 
-    systemTheme,
-  
-
+  initialState: {
+    theme: systemTheme,
+  },
   reducers: {
-    setSystemTheme: (state) => Appearance.getColorScheme(),
-    setDarkTheme: () => 'dark',
-    setLightTheme: () => 'light',
+    setSystemTheme: (state) => {
+      state.theme = Appearance.getColorScheme();
+    },
+    setDarkTheme: (state) => {
+      state.theme = 'dark';
+    },
+    setLightTheme: (state) => {
+      state.theme = 'light';
+    },
   },
 });
-export const { setSystemTheme, setDarkTheme, setLightTheme } = ThemeSlice.actions;
-export default ThemeSlice.reducer;
+
+export const { setSystemTheme, setDarkTheme, setLightTheme } = themeSlice.actions;
+export default themeSlice.reducer;
